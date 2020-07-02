@@ -11,4 +11,4 @@ height: 100%;
 export interface CartProps {
 }
 
-export const Cart: React.FC<CartProps> = () => <Container> <FaShoppingCart/> </Container>
+export const Cart: React.FC<CartProps> = () => <Container> <FaShoppingCart size={30}/> </Container>
