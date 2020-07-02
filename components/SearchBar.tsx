@@ -27,5 +27,5 @@ export interface SearchBarProps {
 
 export const SearchBar: React.FC<SearchBarProps> = () => <Container>
     <TextBox/>
-    <SearchIconContainer><FaSearch size={25}/></SearchIconContainer>
+    <SearchIconContainer><FaSearch size={20}/></SearchIconContainer>
 </Container>
