@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import Grid from "styled-components-grid";
-import { FaAngleRight, FaStar } from "react-icons/fa";
-import { ProductDetailsModel, VariantDetails, Ratings } from "../models/Models";
-import { ProductPrice } from "../components/ProductPrice";
-import { Offers } from "../components/Offers";
+import {FaAngleRight, FaStar} from "react-icons/fa";
+import {ProductDetailsModel, VariantDetails} from "../models/Models";
+import {ProductPrice} from "../components/ProductPrice";
+import {Offers} from "../components/Offers";
+import _ from 'lodash';
 
 const BreadCrumbContainer = styled.div`
   display: flex;
@@ -24,63 +25,60 @@ const Heading = styled.div`
   color: #162d3d;
 `;
 
-const Rating = styled.div`
+const RatingContainer = styled.div`
   color: rgb(255, 215, 0);
   display: flex;
   padding: 0.25rem 0;
 `;
 
+const Rating = ({rating}: { rating: number }) => {
+    return <RatingContainer>{_.times(rating, () => <FaStar/>)}
+        <RatingText>{`${rating} Ratings`}</RatingText></RatingContainer>
+
+}
+
 const RatingText = styled.div`
   color: #32536a;
   margin-left: 0.5rem;
 `;
+
 export interface ProductContentsProps {
-  productDetails: ProductDetailsModel;
-  variantDetails: VariantDetails;
-  ratings: Ratings;
+    productDetails: ProductDetailsModel;
+    variantDetails: VariantDetails;
 }
 
 const ProductContents: React.FC<ProductContentsProps> = ({
-  productDetails,
-  variantDetails,
-  ratings,
-}) => {
-  console.log(variantDetails);
-  return (
-    <>
-      <Grid.Unit size={12}>
-        <BreadCrumbContainer>
-          {productDetails.hierarchy.map((data, i) => (
-            <Text>
-              {data}
-              {i != productDetails.hierarchy.length - 1 && (
-                <FaAngleRight size={20} />
-              )}
-            </Text>
-          ))}
-        </BreadCrumbContainer>
-      </Grid.Unit>
-      <Grid.Unit size={12}>
-        <Heading>Vivo Z1x (Fusion Blue, 64 GB) (6 GB RAM)</Heading>
-      </Grid.Unit>
-      <Grid.Unit size={12}>
-        <Rating>
-          <FaStar />
-          <FaStar />
-          <FaStar />
-          <FaStar />
-          <FaStar />
-          <RatingText>{`${ratings} Ratings`}</RatingText>
-        </Rating>
-      </Grid.Unit>
-      <Grid.Unit size={12}>
-        <ProductPrice price={variantDetails.price} />
-      </Grid.Unit>
-      <Grid.Unit size={12}>
-        <Offers offers={productDetails.offers} />
-      </Grid.Unit>
-    </>
-  );
+                                                             productDetails,
+                                                             variantDetails,
+                                                         }) => {
+    return (
+        <>
+            <Grid.Unit size={12}>
+                <BreadCrumbContainer>
+                    {productDetails.hierarchy.map((data, i) => (
+                        <Text>
+                            {data}
+                            {i != productDetails.hierarchy.length - 1 && (
+                                <FaAngleRight size={20}/>
+                            )}
+                        </Text>
+                    ))}
+                </BreadCrumbContainer>
+            </Grid.Unit>
+            <Grid.Unit size={12}>
+                <Heading>{variantDetails.title}</Heading>
+            </Grid.Unit>
+            <Grid.Unit size={12}>
+                <Rating rating={variantDetails.rating}/>
+            </Grid.Unit>
+            <Grid.Unit size={12}>
+                <ProductPrice price={variantDetails.price}/>
+            </Grid.Unit>
+            <Grid.Unit size={12}>
+                <Offers offers={productDetails.offers}/>
+            </Grid.Unit>
+        </>
+    );
 };
 
 export default ProductContents;

@@ -43,7 +43,6 @@ const ProductDetails: React.FC<ProductDetailsProps> = () => {
                     <ProductContents
                         variantDetails={variantDetails}
                         productDetails={productDetails}
-                        ratings={{ratings: [5]}}
                     />
                     <OptionTypes
                         options={productDetails.optionTypes}
