@@ -1,13 +1,14 @@
-import React from "react"
+import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-`
+  display: flex;
+  flex-direction: column;
+`;
 
 const ImageContainer = styled.div`
     height: 90px;
+    cursor: pointer;
     width: 100px;
     & img{
         height: 90%;
@@ -15,23 +16,34 @@ const ImageContainer = styled.div`
     object-fit: contain;
     }
 }
-`
+`;
 
-
-const ImageThumb = ({src}) =>
-    <ImageContainer>
-        <img src={`${src}`} key={src}/>
-    </ImageContainer>
+const ImageThumb = ({ src, setImage }) => (
+  <ImageContainer>
+    <img src={`${src}`} key={src} onClick={() => setImage(src)} />
+  </ImageContainer>
+);
 
 export interface ImageThumbsProps {
-    images: string[];
+  images: string[];
+  setImage: (image: string) => void;
 }
-
-const ImageThumbs: React.FC<ImageThumbsProps> = ({images}: ImageThumbsProps) =>
-    <Container>
-        {images.map(x => {
-            return <ImageThumb src={x}/>;
-        })}
-    </Container>
+const ImageThumbs: React.FC<ImageThumbsProps> = ({
+  images,
+  setImage,
+}: ImageThumbsProps) => (
+  <Container>
+    {images.map((x) => {
+      return (
+        <ImageThumb
+          src={x}
+          setImage={() => {
+            setImage(x);
+          }}
+        />
+      );
+    })}
+  </Container>
+);
 
 export default ImageThumbs;
