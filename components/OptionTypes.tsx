@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import { OptionType } from "../models/Models";
+import {Options, OptionType} from "../models/Models";
 
 const Heading = styled.div``;
 const Layout = styled.div`
@@ -24,21 +24,21 @@ export interface OptionTypeProps {
   type: string;
   options: string[];
   selectedVal: string;
-  currentOptions: { type: string; value: string }[];
+  currentOptions: Options[];
   changeOptions: (
     type: string,
     value: string,
-    currentOptions: { type: string; value: string }[]
+    currentOptions: Options[]
   ) => void;
 }
 
 export interface OptionTypesProps {
   options: OptionType[];
-  currentOptions: { type: string; value: string }[];
+  currentOptions: Options[];
   changeOptions: (
     type: string,
     value: string,
-    currentOptions: { type: string; value: string }[]
+    currentOptions: Options[]
   ) => void;
 }
 
@@ -78,7 +78,7 @@ export const OptionTypes: React.FC<OptionTypesProps> = ({
         {...option}
         changeOptions={changeOptions}
         currentOptions={currentOptions}
-        selectedVal={currentOptions.find((x) => x.type === option.type).value}
+        selectedVal={currentOptions.find((x) => x.type === option.type)?.value}
       />
     ))}
   </div>

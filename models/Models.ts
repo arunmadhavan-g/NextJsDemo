@@ -4,9 +4,9 @@ export interface VariantDetails {
   price: { mrp: number; sellingPrice: number };
 }
 
-export interface ProductDetails {
+export interface ProductDetailsModel {
   offers: string[];
-  breadcrumbs: string[];
+  hierarchy: string[];
   optionTypes: OptionType[];
 }
 
@@ -17,4 +17,9 @@ export interface OptionType {
 
 export interface Ratings {
   ratings: number[];
+}
+
+export interface Options {
+  type: string;
+  value: string;
 }

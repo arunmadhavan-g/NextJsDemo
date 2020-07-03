@@ -12,7 +12,6 @@ export interface CartProps {}
 
 export const Cart: React.FC<CartProps> = () => (
   <Container>
-    {" "}
-    <FaShoppingCart size={30} />{" "}
+    <FaShoppingCart size={30} />
   </Container>
 );

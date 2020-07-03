@@ -1,12 +1,12 @@
 import React from "react";
 import { action } from "@storybook/addon-actions";
-import { Button } from "@storybook/react/demo";
+import { PrimaryButton } from "../components/common/Button";
 
 export default {
   title: "Button",
-  component: Button,
+  component: PrimaryButton,
 };
 
 export const Text = () => (
-  <Button onClick={action("clicked")}>Hello Button</Button>
+  <PrimaryButton size="large" onclick={action("clicked")} text="Buy Now" />
 );
