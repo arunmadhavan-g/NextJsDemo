@@ -31,8 +31,9 @@ const RatingContainer = styled.div`
   padding: 0.25rem 0;
 `;
 
-const Rating = ({rating}: { rating: number }) => {
+const Ratings = ({rating}: { rating: number }) => {
     return <RatingContainer>{_.times(rating, () => <FaStar/>)}
+        {_.times(5 - rating, () => <FaStar color="#dfdfdf"/>)}
         <RatingText>{`${rating} Ratings`}</RatingText></RatingContainer>
 
 }
@@ -69,7 +70,7 @@ const ProductContents: React.FC<ProductContentsProps> = ({
                 <Heading>{variantDetails.title}</Heading>
             </Grid.Unit>
             <Grid.Unit size={12}>
-                <Rating rating={variantDetails.rating}/>
+                <Ratings rating={variantDetails.rating}/>
             </Grid.Unit>
             <Grid.Unit size={12}>
                 <ProductPrice price={variantDetails.price}/>

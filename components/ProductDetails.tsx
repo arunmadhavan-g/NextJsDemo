@@ -12,13 +12,6 @@ import {Specification} from "./Specification";
 import {changeOptionType, addToCart, fetchProductDetails, fetchDefaultVariant} from "../store/actions";
 import {Options, ProductDetailsModel, VariantDetails} from "../models/Models";
 
-const images: string[] = [
-    "images/vivo-front.png",
-    "images/vivo-right.png",
-    "images/vivo-back.png",
-    "images/vivo-left.png",
-];
-
 export interface ProductDetailsProps {
 }
 
@@ -36,7 +29,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = () => {
         <>
             <Grid>
                 <Grid.Unit size={6 / 12}>
-                    <ProductImages images={images}/>
+                    <ProductImages images={variantDetails.images}/>
                     <ButtonsContainer addToCart={() => dispatch(addToCart())}/>
                 </Grid.Unit>
                 <Grid.Unit size={6 / 12}>

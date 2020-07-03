@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Grid from "styled-components-grid";
-import ImageThumbs from "../components/ImageThumbs";
-import MainImage from "../components/MainImage";
+import ImageThumbs from "./common/ImageThumbs";
+import MainImage from "./common/MainImage";
 
 export interface ProductImagesProps {
   images: string[];

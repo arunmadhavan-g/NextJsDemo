@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled, {css} from "styled-components";
 import {Options, OptionType} from "../models/Models";
 
 const Heading = styled.div``;
@@ -21,65 +21,70 @@ const Thumbnail = styled.div`
 `;
 
 export interface OptionTypeProps {
-  type: string;
-  options: string[];
-  selectedVal: string;
-  currentOptions: Options[];
-  changeOptions: (
-    type: string,
-    value: string,
-    currentOptions: Options[]
-  ) => void;
+    type: string;
+    options: string[];
+    selectedVal: string;
+    currentOptions: Options[];
+    changeOptions: (
+        type: string,
+        value: string,
+        currentOptions: Options[]
+    ) => void;
 }
 
 export interface OptionTypesProps {
-  options: OptionType[];
-  currentOptions: Options[];
-  changeOptions: (
-    type: string,
-    value: string,
-    currentOptions: Options[]
-  ) => void;
+    options: OptionType[];
+    currentOptions: Options[];
+    changeOptions: (
+        type: string,
+        value: string,
+        currentOptions: Options[]
+    ) => void;
 }
 
 const Option: React.FC<OptionTypeProps> = ({
-  type,
-  options,
-  selectedVal,
-  currentOptions,
-  changeOptions,
-}: OptionTypeProps) => {
-  console.log(options);
-  return (
-    <div style={{ margin: "10px 0" }}>
-      <Heading>{type}</Heading>
-      <Layout>
-        {options.map((option) => (
-          <Thumbnail
-            selected={selectedVal === option}
-            onClick={() => changeOptions(type, option, currentOptions)}
-          >
-            {option}
-          </Thumbnail>
-        ))}
-      </Layout>
-    </div>
-  );
+                                               type,
+                                               options,
+                                               selectedVal,
+                                               currentOptions,
+                                               changeOptions,
+                                           }: OptionTypeProps) => {
+    console.log(options);
+    return (
+        <div style={{margin: "10px 0"}}>
+            <Heading>{type}</Heading>
+            <Layout>
+                {options.map((option) => (
+                    <Thumbnail
+                        selected={selectedVal === option}
+                        onClick={() => changeOptions(type, option, currentOptions)}
+                    >
+                        {option}
+                    </Thumbnail>
+                ))}
+            </Layout>
+        </div>
+    );
 };
 
+const getSelectedValue = (currentOptions: Options[], option: OptionType): string => {
+    const selectedOption = currentOptions.find((x) => x.type === option.type);
+    return selectedOption ? selectedOption.value : option.options[0];
+}
+
 export const OptionTypes: React.FC<OptionTypesProps> = ({
-  options,
-  currentOptions,
-  changeOptions,
-}: OptionTypesProps) => (
-  <div>
-    {options.map((option) => (
-      <Option
-        {...option}
-        changeOptions={changeOptions}
-        currentOptions={currentOptions}
-        selectedVal={currentOptions.find((x) => x.type === option.type).value}
-      />
-    ))}
-  </div>
+                                                            options,
+                                                            currentOptions,
+                                                            changeOptions,
+                                                        }: OptionTypesProps) => (
+    <div>
+        {options.map((option) => (
+            <Option
+                {...option}
+                changeOptions={changeOptions}
+                currentOptions={currentOptions}
+                selectedVal={getSelectedValue(currentOptions, option)}
+            />
+        ))}
+    </div>
 );
