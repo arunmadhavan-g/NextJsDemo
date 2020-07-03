@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Grid from "styled-components-grid";
 import { FaAngleRight, FaStar } from "react-icons/fa";
-import { ProductDetails, VariantDetails, Ratings } from "../models/Models";
+import { ProductDetailsModel, VariantDetails, Ratings } from "../models/Models";
 import { ProductPrice } from "../components/ProductPrice";
 import { Offers } from "../components/Offers";
 
@@ -35,7 +35,7 @@ const RatingText = styled.div`
   margin-left: 0.5rem;
 `;
 export interface ProductContentsProps {
-  productDetails: ProductDetails;
+  productDetails: ProductDetailsModel;
   variantDetails: VariantDetails;
   ratings: Ratings;
 }
@@ -50,10 +50,10 @@ const ProductContents: React.FC<ProductContentsProps> = ({
     <>
       <Grid.Unit size={12}>
         <BreadCrumbContainer>
-          {productDetails.breadcrumbs.map((data, i) => (
+          {productDetails.hierarchy.map((data, i) => (
             <Text>
               {data}
-              {i != productDetails.breadcrumbs.length - 1 && (
+              {i != productDetails.hierarchy.length - 1 && (
                 <FaAngleRight size={20} />
               )}
             </Text>
