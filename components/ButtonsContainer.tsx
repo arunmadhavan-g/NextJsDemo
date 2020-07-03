@@ -1,8 +1,7 @@
 import React from "react";
-import styled from "styled-components";
+import { PrimaryButton } from "./common/Button";
 import * as Icon from "react-bootstrap-icons";
 
-const Button = styled.button``;
 export interface ButtonsContainerProps {
   addToCart: () => void;
 }
@@ -17,11 +16,17 @@ export const ButtonsContainer: React.FC<ButtonsContainerProps> = ({
       padding: "35px 50px",
     }}
   >
-    <Button size="large" prefixIcon={<Icon.Cart2 />} onClick={addToCart}>
-      Add To Cart
-    </Button>
-    <Button size="large" prefixIcon={<Icon.SkipForward />}>
-      Buy Now
-    </Button>
+    <PrimaryButton
+      size="large"
+      text="Add To Cart"
+      prefixIcon={<Icon.Cart2 />}
+      onclick={addToCart}
+    />
+    <PrimaryButton
+      text="Buy Now"
+      size="large"
+      prefixIcon={<Icon.SkipForward />}
+      onclick={addToCart}
+    />
   </div>
 );
