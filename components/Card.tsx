@@ -1,9 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import Text from "./common/Text";
+import MainImage from "./common/MainImage";
 
 export interface CardProps {
   title: string;
   paragraph: string;
+  imgSrc: string;
+  inverted: boolean;
 }
 
 const Container = styled.div`
@@ -24,20 +28,13 @@ const Container = styled.div`
     border-color: #0070f3;
   }
 `;
-const Heading = styled.h3`
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
-`;
 
-const Paragraph = styled.p`
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
-`;
-const Card: React.FC<CardProps> = ({ title, paragraph }: CardProps) => (
+const Card: React.FC<CardProps> = ({ title, paragraph, inverted, imgSrc }: CardProps) => (
   <Container>
-    <Heading>{title}</Heading>
-    <Paragraph>{paragraph}</Paragraph>
+      {inverted && <MainImage image={imgSrc}/>}
+    <Text form="normal" type="primary">{title}</Text>
+    <Text form="paragraph" type="paragraph">{paragraph}</Text>
+          {!inverted && <MainImage image={imgSrc}/>}
   </Container>
 );
 

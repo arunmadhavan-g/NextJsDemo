@@ -3,20 +3,22 @@ import styled from "styled-components";
 
 export interface TextProps {
     children: ReactNode
-    type: "secondary" | "primary"
-    form: "small" | "h1" | "h2" | "h3" | "h4" | "large" | "normal"
+    type: "secondary" | "primary" | "paragraph"
+    form: "small" | "h1" | "h2" | "h3" | "h4" | "large" | "normal" | "paragraph"
     decoration?: string
 }
 
 const types = {
     secondary: {color: "grey"},
-    primary: {color: "black"}
+    primary: {color: "black"},
+    paragraph: {color: "#4d4d4d"}
 }
 
 const forms = {
     small: {fontsize: "small", fontWeight: "normal"},
     large: {fontsize: "xx-large", fontWeight: "normal"},
     normal: {fontsize: "large", fontWeight: "normal"},
+    paragraph: {fontsize: "15px", fontWeight: "normal"},
     h2: {fontsize: "24px", fontWeight: "bold"},
     h3: {fontsize: "20px", fontWeight: "bold"},
     h4: {fontsize: "16px", fontWeight: "bold"}

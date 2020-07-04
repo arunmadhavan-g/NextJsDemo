@@ -33,11 +33,12 @@ const ProductDetails: React.FC<ProductDetailsProps> = () => {
     return (
         <Container>
             <Grid>
-                <Grid.Unit size={6 / 12}>
+                <Grid.Unit size={1/12}/>
+                <Grid.Unit size={5 / 12}>
                     <ProductImages images={variantDetails.images}/>
                     <ButtonsContainer addToCart={() => dispatch(addToCart())}/>
                 </Grid.Unit>
-                <Grid.Unit size={6 / 12}>
+                <Grid.Unit size={5 / 12}>
                     <ProductContents
                         variantDetails={variantDetails}
                         productDetails={productDetails}
@@ -54,16 +55,21 @@ const ProductDetails: React.FC<ProductDetailsProps> = () => {
                     <Delivery status={false} getStatus={getDeliveryStatus}/>
                     <Synopsis content={productDetails.synopsis}/>
                 </Grid.Unit>
+                <Grid.Unit size={1/12}/>
             </Grid>
             <Grid>
-                <Grid.Unit size={12}>
+                <Grid.Unit size={1/12}/>
+                <Grid.Unit size={10/12}>
                     <DetailedDescription features={productDetails.features}/>
                 </Grid.Unit>
+                <Grid.Unit size={1/12}/>
             </Grid>
             <Grid>
-                <Grid.Unit size={12}>
+                <Grid.Unit size={1/12}/>
+                <Grid.Unit size={10/12}>
                     <Specification specs={productDetails.specs}/>
                 </Grid.Unit>
+                <Grid.Unit size={1/12}/>
             </Grid>
         </Container>
     );

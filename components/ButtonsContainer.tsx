@@ -15,7 +15,7 @@ const Container = styled.div`
 `
 
 export const ButtonsContainer: React.FC<ButtonsContainerProps> = ({addToCart}: ButtonsContainerProps) => (
-    <Container id="hey">
+    <Container>
         <Button size="large" prefixIcon={<Icon.Cart2/>} onClick={addToCart} type="primary">
             Add To Cart
         </Button>
