@@ -17,7 +17,7 @@ const ProductImages: React.FC<ProductImagesProps> = ({
   return (
     <Grid>
       <Grid.Unit size={1 / 6}>
-        <ImageThumbs images={images} setImage={setCurrentImage} />
+        <ImageThumbs images={images} setImage={setCurrentImage} image={currentImage} />
       </Grid.Unit>
       <Grid.Unit size={5 / 6}>
         <MainImage image={currentImage} />

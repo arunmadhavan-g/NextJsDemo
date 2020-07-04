@@ -1,8 +1,8 @@
 import React from "react";
 import styled, {css} from "styled-components";
 import {Options, OptionType} from "../models/Models";
+import Text from "./common/Text";
 
-const Heading = styled.div``;
 const Layout = styled.div`
   display: flex;
 `;
@@ -20,6 +20,9 @@ const Thumbnail = styled.div`
     `};
 `;
 
+const Container = styled.div`
+   margin: 10px 0
+`
 export interface OptionTypeProps {
     type: string;
     options: string[];
@@ -51,8 +54,8 @@ const Option: React.FC<OptionTypeProps> = ({
                                            }: OptionTypeProps) => {
     console.log(options);
     return (
-        <div style={{margin: "10px 0"}}>
-            <Heading>{type}</Heading>
+        <Container>
+            <Text form="normal" type="primary">{type}</Text>
             <Layout>
                 {options.map((option) => (
                     <Thumbnail
@@ -63,7 +66,7 @@ const Option: React.FC<OptionTypeProps> = ({
                     </Thumbnail>
                 ))}
             </Layout>
-        </div>
+        </Container>
     );
 };
 
