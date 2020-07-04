@@ -5,7 +5,7 @@ export interface ButtonProps {
     type: "primary" | "secondary" | "danger"
     size: "large" | "small"
     prefixIcon?: ReactNode
-    onClick: Function
+    onClick?: Function
     children: ReactNode
 }
 
