@@ -4,10 +4,10 @@ import Text from "./common/Text";
 import MainImage from "./common/MainImage";
 
 export interface CardProps {
-  title: string;
-  paragraph: string;
-  imgSrc: string;
-  inverted: boolean;
+    title: string;
+    paragraph: string;
+    imgSrc: string;
+    inverted: boolean;
 }
 
 const Container = styled.div`
@@ -20,7 +20,7 @@ const Container = styled.div`
   border: 1px solid #eaeaea;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
-
+   display: flex;
   &:hover,
   &:focus,
   &:active {
@@ -29,13 +29,19 @@ const Container = styled.div`
   }
 `;
 
-const Card: React.FC<CardProps> = ({ title, paragraph, inverted, imgSrc }: CardProps) => (
-  <Container>
-      {inverted && <MainImage image={imgSrc}/>}
-    <Text form="normal" type="primary">{title}</Text>
-    <Text form="paragraph" type="paragraph">{paragraph}</Text>
-          {!inverted && <MainImage image={imgSrc}/>}
-  </Container>
+const TextContainer = styled.div`
+    margin-left: ${props => props.inverted? "10px": "none"};
+`
+
+const Card: React.FC<CardProps> = ({title, paragraph, inverted, imgSrc}: CardProps) => (
+    <Container>
+        {inverted && <MainImage image={imgSrc}/>}
+        <TextContainer inverted={inverted}>
+            <Text form="normal" type="primary">{title}</Text>
+            <Text form="paragraph" type="paragraph">{paragraph}</Text>
+        </TextContainer>
+        {!inverted && <MainImage image={imgSrc}/>}
+    </Container>
 );
 
 export default Card;
