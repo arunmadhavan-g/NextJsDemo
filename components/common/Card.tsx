@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Text from "./common/Text";
-import MainImage from "./common/MainImage";
+import Text from "./Text";
+import MainImage from "./MainImage";
 
 export interface CardProps {
     title: string;

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Text from "./common/Text";
-import Card from "./Card";
+import Card from "./common/Card";
 
 export interface DetailedDescriptionProps {
     features: { title: string; description: string; image: string }[];
