@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "next -p 3001",
     "build": "next build",
+    "prod": "next export",
     "start": "next start",
     "storybook": "start-storybook -p 6006 -c .storybook"
   },

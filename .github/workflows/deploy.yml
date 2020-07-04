@@ -26,10 +26,11 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm install
     - run: npm run build
+    - run: npm run prod
 
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN }}
         BRANCH: gh-pages
-        FOLDER: dist
+        FOLDER: out
