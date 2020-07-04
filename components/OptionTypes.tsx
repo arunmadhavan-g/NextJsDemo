@@ -7,23 +7,11 @@ import Thumbnails from "./common/Thumbnails";
 const Layout = styled.div`
   display: flex;
 `;
-// const Thumbnail = styled.div`
-//   cursor: pointer;
-//   margin-right: 10px;
-//   padding: 15px;
-//   box-shadow: 0 0 0 1px rgba(43, 129, 203, 0.24) inset;
-//   border-radius: 6px;
-//   content: " ";
-//   ${(props) =>
-//     props.selected &&
-//     css`
-//       box-shadow: 0 0 0 2px #3899ec inset;
-//     `};
-// `;
 
 const Container = styled.div`
    margin: 10px 0
 `
+
 export interface OptionTypeProps {
     type: string;
     options: string[];
@@ -52,27 +40,20 @@ const Option: React.FC<OptionTypeProps> = ({
                                                selectedVal,
                                                currentOptions,
                                                changeOptions,
-                                           }: OptionTypeProps) => {
-    console.log(options);
-    return (
-        <Container>
-            <Text form="normal" type="primary">{type}</Text>
-            <Layout>
-                {options.map((option) => (
-                    <Thumbnails size={30} selected={selectedVal == option} onClick={() => changeOptions(type, option, currentOptions)}>
-                        {option}
-                    </Thumbnails>
-                    // <Thumbnail
-                    //     selected={selectedVal === option}
-                    //     onClick={() => changeOptions(type, option, currentOptions)}
-                    // >
-                    //     {option}
-                    // </Thumbnail>
-                ))}
-            </Layout>
-        </Container>
-    );
-};
+                                           }: OptionTypeProps) =>
+
+    <Container>
+        <Text form="normal" type="primary">{type}</Text>
+        <Layout>
+            {options.map((option) =>
+                <Thumbnails size={30} selected={selectedVal == option}
+                            onClick={() => changeOptions(type, option, currentOptions)}>
+                    {option}
+                </Thumbnails>
+            )}
+        </Layout>
+    </Container>
+
 
 const getSelectedValue = (currentOptions: Options[], option: OptionType): string => {
     const selectedOption = currentOptions.find((x) => x.type === option.type);
@@ -83,7 +64,7 @@ export const OptionTypes: React.FC<OptionTypesProps> = ({
                                                             options,
                                                             currentOptions,
                                                             changeOptions,
-                                                        }: OptionTypesProps) => (
+                                                        }: OptionTypesProps) =>
     <div>
         {options.map((option) => (
             <Option
@@ -94,4 +75,4 @@ export const OptionTypes: React.FC<OptionTypesProps> = ({
             />
         ))}
     </div>
-);
+

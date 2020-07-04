@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 export interface ButtonProps {
     type: "primary" | "secondary" | "danger"
     size: "large" | "small"
-    prefixIcon: ReactNode
+    prefixIcon?: ReactNode
     onClick: Function
     children: ReactNode
 }
@@ -14,7 +14,7 @@ const Container = styled.div`
 `
 const sizes = {
     large: {"min-width": "200px", "min-height": "50px", "font-size": "large"},
-    small: {"min-width": "none", "min-height": "none", "font-size": "small"},
+    small: {"min-width": "none", "min-height": "30px", "font-size": "small"},
 }
 
 const types = {
