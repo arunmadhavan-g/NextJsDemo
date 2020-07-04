@@ -15,6 +15,13 @@ const ImageContainer = styled.div`
         width: 100%;
     object-fit: contain;
     }
+    border: 1px solid #dfdfdf;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+}
+
+
 }
 `;
 

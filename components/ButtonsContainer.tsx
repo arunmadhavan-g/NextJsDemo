@@ -1,27 +1,26 @@
 import React from "react";
-import styled from "styled-components";
 import * as Icon from "react-bootstrap-icons";
+import Button from "./common/Button";
+import styled from "@emotion/styled";
 
-const Button = styled.button``;
 export interface ButtonsContainerProps {
-  addToCart: () => void;
+    addToCart: () => void;
 }
 
-export const ButtonsContainer: React.FC<ButtonsContainerProps> = ({
-  addToCart,
-}: ButtonsContainerProps) => (
-  <div
-    style={{
-      display: "flex",
-      justifyContent: "space-evenly",
-      padding: "35px 50px",
-    }}
-  >
-    <Button size="large" prefixIcon={<Icon.Cart2 />} onClick={addToCart}>
-      Add To Cart
-    </Button>
-    <Button size="large" prefixIcon={<Icon.SkipForward />}>
-      Buy Now
-    </Button>
-  </div>
+const Container = styled.div`
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-evenly ;
+    padding: 35px 50px
+`
+
+export const ButtonsContainer: React.FC<ButtonsContainerProps> = ({addToCart}: ButtonsContainerProps) => (
+    <Container id="hey">
+        <Button size="large" prefixIcon={<Icon.Cart2/>} onClick={addToCart} type="primary">
+            Add To Cart
+        </Button>
+        <Button size="large" prefixIcon={<Icon.SkipForward/>} type="danger">
+            Buy Now
+        </Button>
+    </Container>
 );

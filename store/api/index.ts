@@ -3,8 +3,8 @@ import {Options, ProductDetailsModel, VariantDetails} from "../../models/Models"
 import {productDetails} from "../../data/ProductData";
 
 
-// const baseUrl = "https://ajira-poorvika-golang-poc.herokuapp.com";
-const baseUrl = "http://localhost:3000";
+const baseUrl = "https://ajira-poorvika-golang-poc.herokuapp.com";
+// const baseUrl = "http://localhost:3000";
 const getProductDetails = async (): Promise<ProductDetailsModel> => {
     try {
         const productDetails: ProductDetailsModel = (await axios.get(`${baseUrl}/product-details`)).data

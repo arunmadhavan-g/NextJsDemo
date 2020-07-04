@@ -11,6 +11,11 @@ import {DetailedDescription} from "./DetailedDescription";
 import {Specification} from "./Specification";
 import {changeOptionType, addToCart, fetchProductDetails, fetchDefaultVariant} from "../store/actions";
 import {Options, ProductDetailsModel, VariantDetails} from "../models/Models";
+import styled from "@emotion/styled";
+
+const Container = styled.div`
+    margin-top: 50px;
+`
 
 export interface ProductDetailsProps {
 }
@@ -26,7 +31,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = () => {
     }, []);
     const {productDetails, variantDetails} = useSelector((state: { productDetails: ProductDetailsModel, variantDetails: VariantDetails }) => state);
     return (
-        <>
+        <Container>
             <Grid>
                 <Grid.Unit size={6 / 12}>
                     <ProductImages images={variantDetails.images}/>
@@ -60,7 +65,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = () => {
                     <Specification specs={productDetails.specs}/>
                 </Grid.Unit>
             </Grid>
-        </>
+        </Container>
     );
 };
 
