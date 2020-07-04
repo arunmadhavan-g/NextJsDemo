@@ -1,24 +1,25 @@
 import React from "react";
-import styled, {css} from "styled-components";
+import styled from "styled-components";
 import {Options, OptionType} from "../models/Models";
 import Text from "./common/Text";
+import Thumbnails from "./common/Thumbnails";
 
 const Layout = styled.div`
   display: flex;
 `;
-const Thumbnail = styled.div`
-  cursor: pointer;
-  margin-right: 10px;
-  padding: 15px;
-  box-shadow: 0 0 0 1px rgba(43, 129, 203, 0.24) inset;
-  border-radius: 6px;
-  content: " ";
-  ${(props) =>
-    props.selected &&
-    css`
-      box-shadow: 0 0 0 2px #3899ec inset;
-    `};
-`;
+// const Thumbnail = styled.div`
+//   cursor: pointer;
+//   margin-right: 10px;
+//   padding: 15px;
+//   box-shadow: 0 0 0 1px rgba(43, 129, 203, 0.24) inset;
+//   border-radius: 6px;
+//   content: " ";
+//   ${(props) =>
+//     props.selected &&
+//     css`
+//       box-shadow: 0 0 0 2px #3899ec inset;
+//     `};
+// `;
 
 const Container = styled.div`
    margin: 10px 0
@@ -58,12 +59,15 @@ const Option: React.FC<OptionTypeProps> = ({
             <Text form="normal" type="primary">{type}</Text>
             <Layout>
                 {options.map((option) => (
-                    <Thumbnail
-                        selected={selectedVal === option}
-                        onClick={() => changeOptions(type, option, currentOptions)}
-                    >
+                    <Thumbnails size={30} selected={selectedVal == option} onClick={() => changeOptions(type, option, currentOptions)}>
                         {option}
-                    </Thumbnail>
+                    </Thumbnails>
+                    // <Thumbnail
+                    //     selected={selectedVal === option}
+                    //     onClick={() => changeOptions(type, option, currentOptions)}
+                    // >
+                    //     {option}
+                    // </Thumbnail>
                 ))}
             </Layout>
         </Container>

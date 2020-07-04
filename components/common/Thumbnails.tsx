@@ -11,11 +11,14 @@ const Container = styled.div`
         width: 100%;
         object-fit: contain;
     }
-    border: 1px solid;
+    border-style: solid;
+    border-width: ${props => props.selected ? "2px" : "1px"};
     border-color: ${props => props.selected ? "#3899EC" : "#dfdfdf"};
-    margin: 5px 0;
+    background: ${props => props.selected ? "#dcedfc" : "#ffffff"};
+    margin: 5px;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 `
 
