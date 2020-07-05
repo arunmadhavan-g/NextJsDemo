@@ -2,7 +2,7 @@ import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import Card from "../../components/common/Card";
 
-storiesOf("Card", module).add("Card", () => {
+storiesOf("Card", module).addWithJSX("Card", () => {
   return (
     <Card
       title="Description"

@@ -2,7 +2,7 @@ import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import ImageThumbs from "../../components/common/ImageThumbs";
 
-storiesOf("ImageThumbs", module).add(
+storiesOf("ImageThumbs", module).addWithJSX(
   "Image Thumbnails to show vertical images thumbnails",
   () => {
     return (

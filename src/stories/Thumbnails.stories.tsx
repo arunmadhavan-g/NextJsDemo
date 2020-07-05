@@ -3,7 +3,7 @@ import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import Thumbnails from "../../components/common/Thumbnails";
 
-storiesOf("Thumbnails", module).add("Thumbnails", () => {
+storiesOf("Thumbnails", module).addWithJSX("Thumbnails", () => {
   return (
     <Thumbnails size={60} selected={true} onClick={action("button clicked")}>
       <img

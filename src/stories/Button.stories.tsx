@@ -5,7 +5,7 @@ import { action } from "@storybook/addon-actions";
 import Button from "../../components/common/Button";
 
 storiesOf("Button", module)
-  .add("Primary", () => {
+  .addWithJSX("Primary", () => {
     return (
       <Button
         onClick={action("button clicked")}
@@ -17,7 +17,7 @@ storiesOf("Button", module)
       </Button>
     );
   })
-  .add("danger", () => {
+  .addWithJSX("danger", () => {
     return (
       <Button
         onClick={action("button clicked")}
@@ -29,7 +29,7 @@ storiesOf("Button", module)
       </Button>
     );
   })
-  .add("secondary", () => {
+  .addWithJSX("secondary", () => {
     return (
       <Button
         onClick={action("button clicked")}

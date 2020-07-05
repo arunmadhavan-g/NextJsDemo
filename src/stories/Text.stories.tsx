@@ -3,14 +3,14 @@ import { storiesOf } from "@storybook/react";
 import Text from "../../components/common/Text";
 
 storiesOf("Text", module)
-  .add("primary", () => {
+  .addWithJSX("primary", () => {
     return (
       <Text form="normal" type="primary">
         Vivo Z1x (Fusion Blue, 64 GB) (6 GB RAM)
       </Text>
     );
   })
-  .add("Secondary", () => {
+  .addWithJSX("Secondary", () => {
     return (
       <Text form="normal" type="secondary">
         Vivo Z1x (Fusion Blue, 64 GB) (6 GB RAM)
@@ -18,7 +18,7 @@ storiesOf("Text", module)
     );
   })
 
-  .add("paragraph", () => {
+  .addWithJSX("paragraph", () => {
     return (
       <Text form="normal" type="paragraph">
         The Vivo Z1x is powered by Vivo's proprietary FlashCharge technology.
@@ -28,63 +28,63 @@ storiesOf("Text", module)
       </Text>
     );
   })
-  .add("Line Through Text", () => {
+  .addWithJSX("Line Through Text", () => {
     return (
       <Text form="normal" type="secondary" decoration="line-through">
         This is the secondary text type with line-through.
       </Text>
     );
   })
-  .add("Small Text", () => {
+  .addWithJSX("Small Text", () => {
     return (
       <Text form="small" type="primary">
         This is the small text.
       </Text>
     );
   })
-  .add("H1 Text", () => {
+  .addWithJSX("H1 Text", () => {
     return (
       <Text form="h1" type="primary">
         This is the h1 text.
       </Text>
     );
   })
-  .add("H2 Text", () => {
+  .addWithJSX("H2 Text", () => {
     return (
       <Text form="h2" type="primary">
         This is the h2 text.
       </Text>
     );
   })
-  .add("H3 Text", () => {
+  .addWithJSX("H3 Text", () => {
     return (
       <Text form="h3" type="primary">
         This is the h3 text.
       </Text>
     );
   })
-  .add("H4 Text", () => {
+  .addWithJSX("H4 Text", () => {
     return (
       <Text form="h4" type="primary">
         This is the h4 text.
       </Text>
     );
   })
-  .add("Large Text", () => {
+  .addWithJSX("Large Text", () => {
     return (
       <Text form="large" type="primary">
         This is the large text.
       </Text>
     );
   })
-  .add("Normal Text", () => {
+  .addWithJSX("Normal Text", () => {
     return (
       <Text form="normal" type="primary">
         This is the normal text.
       </Text>
     );
   })
-  .add("Paragraph Text", () => {
+  .addWithJSX("Paragraph Text", () => {
     return (
       <Text form="paragraph" type="primary">
         The Vivo Z1x is powered by Vivo's proprietary FlashCharge technology.
