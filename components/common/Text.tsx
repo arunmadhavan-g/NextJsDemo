@@ -19,6 +19,7 @@ const forms = {
   large: { fontsize: "xx-large", fontWeight: "normal" },
   normal: { fontsize: "large", fontWeight: "normal" },
   paragraph: { fontsize: "15px", fontWeight: "normal" },
+  h1: { fontsize: "32px", fontWeight: "bold" },
   h2: { fontsize: "24px", fontWeight: "bold" },
   h3: { fontsize: "20px", fontWeight: "bold" },
   h4: { fontsize: "16px", fontWeight: "bold" },
