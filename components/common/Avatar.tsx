@@ -16,21 +16,20 @@ const Circle = styled.div`
   align-items: center;
   justify-content: center;
   background: #dfdfdf;
-  
 `;
 
 export interface UserProps {
-    userName: string;
+  userName: string;
 }
 
 const getShortForm = (name: string) =>
-    name
-        .split(" ")
-        .map((x) => x.substr(0, 1).toUpperCase())
-        .join("");
+  name
+    .split(" ")
+    .map((x) => x.substr(0, 1).toUpperCase())
+    .join("");
 
-export const Avatar: React.FC<UserProps> = ({userName}: UserProps) => (
-    <Container>
-        <Circle>{getShortForm(userName)}</Circle>
-    </Container>
+export const Avatar: React.FC<UserProps> = ({ userName }: UserProps) => (
+  <Container>
+    <Circle>{getShortForm(userName)}</Circle>
+  </Container>
 );

@@ -1,8 +1,8 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import Grid from "styled-components-grid";
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ProductImages from "../components/ProductImages";
-import {ButtonsContainer} from "./ButtonsContainer";
+import { ButtonsContainer } from "./ButtonsContainer";
 import ProductContents from "./ProductContents";
 import {OptionTypes} from "./OptionTypes";
 import {Delivery} from "./Delivery";
@@ -17,13 +17,12 @@ const Container = styled.div`
     margin-top: 50px;
 `
 
-export interface ProductDetailsProps {
-}
+export interface ProductDetailsProps {}
 
 const getDeliveryStatus = (zipCode: string): boolean => zipCode === "600004";
 
 const ProductDetails: React.FC<ProductDetailsProps> = () => {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
     useEffect(() => {
         fetchProductDetails(dispatch);

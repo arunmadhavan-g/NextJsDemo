@@ -1,11 +1,11 @@
-import React from "react"
+import React from "react";
 import styled from "styled-components";
-import {FaStar} from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 import Text from "./Text";
-import _ from 'lodash';
+import _ from "lodash";
 
 export interface RatingsProps {
-    rating: number;
+  rating: number;
 }
 
 const RatingContainer = styled.div`
@@ -16,18 +16,22 @@ const RatingContainer = styled.div`
 `;
 
 const TextContainer = styled.div`
-    margin-top: 2px;
-    margin-left: 10px;
-`
+  margin-top: 2px;
+  margin-left: 10px;
+`;
 
-
-const Ratings: React.FC<RatingsProps> = ({rating}: RatingsProps) =>
-    <RatingContainer>{_.times(rating, () => <FaStar/>)}
-        {_.times(5 - rating, () => <FaStar color="#dfdfdf"/>)}
-        <TextContainer>
-            <Text form="h4" type="secondary">{`${rating} Ratings`}</Text>
-        </TextContainer>
-    </RatingContainer>
-
+const Ratings: React.FC<RatingsProps> = ({ rating }: RatingsProps) => (
+  <RatingContainer>
+    {_.times(rating, () => (
+      <FaStar />
+    ))}
+    {_.times(5 - rating, () => (
+      <FaStar color="#dfdfdf" />
+    ))}
+    <TextContainer>
+      <Text form="h4" type="secondary">{`${rating} Ratings`}</Text>
+    </TextContainer>
+  </RatingContainer>
+);
 
 export default Ratings;
