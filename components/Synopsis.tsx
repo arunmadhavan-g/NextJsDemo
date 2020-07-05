@@ -1,25 +1,26 @@
 import React from "react";
+import Text from "./common/Text";
 import styled from "styled-components";
 
-const Text = styled.div``;
-const FormField = styled.div``;
-const Label = styled.div`
-  display: flex;
-  align-items: center;
-  flex: 1 0 auto;
-  max-width: 100%;
-`;
+
 export interface SynopsisProps {
-  content: string;
+    content: string;
 }
 
-export const Synopsis: React.FC<SynopsisProps> = ({
-  content,
-}: SynopsisProps) => (
-  <div style={{ margin: "10px 0" }}>
-    <FormField>
-      <Label>Desctiption</Label>
-      <Text>{content}</Text>
-    </FormField>
-  </div>
+const Container = styled.div`
+    margin: 10px 0
+`
+
+const ContentContainer = styled.div`
+    margin-top: 10px;
+`;
+
+export const Synopsis: React.FC<SynopsisProps> = ({content}: SynopsisProps) => (
+    <Container>
+
+        <Text form="normal" type="primary">Description</Text>
+        <ContentContainer>
+            <Text form="paragraph" type="paragraph">{content}</Text>
+        </ContentContainer>
+    </Container>
 );

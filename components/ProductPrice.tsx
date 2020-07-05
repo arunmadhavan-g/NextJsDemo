@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-const Heading = styled.div`
-  font-size: 28px;
-`;
+import Text from "./common/Text";
+
 const MRP = styled.div`
-  font-size: 18px;
+  margin-left: 10px;
 `;
+
 export interface ProductPriceProps {
   price: {
     mrp: number;
@@ -23,15 +23,14 @@ export const ProductPrice: React.FC<ProductPriceProps> = ({
   price,
 }: ProductPriceProps) => (
   <div style={{ display: "flex", alignItems: "center", marginTop: "15px" }}>
-    <Heading>{formatPrice(price.sellingPrice)}</Heading>
+    <Text form="large" type="primary">
+      {formatPrice(price.sellingPrice)}
+    </Text>
     {price.mrp !== price.sellingPrice && (
-      <MRP
-        style={{
-          textDecoration: "line-through",
-          marginLeft: "10px",
-        }}
-      >
-        {formatPrice(price.mrp)}
+      <MRP>
+        <Text form="normal" type="secondary" decoration="line-through">
+          {formatPrice(price.mrp)}
+        </Text>
       </MRP>
     )}
   </div>

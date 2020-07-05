@@ -8,13 +8,14 @@ const Container = styled.div`
   justify-content: center;
 `;
 const Circle = styled.div`
-  height: 30px;
-  width: 30px;
+  height: 50px;
+  width: 50px;
   border-radius: 30px;
-  border: 2px solid black;
+  border: 2px solid grey;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: #dfdfdf;
 `;
 
 export interface UserProps {
@@ -27,7 +28,7 @@ const getShortForm = (name: string) =>
     .map((x) => x.substr(0, 1).toUpperCase())
     .join("");
 
-export const User: React.FC<UserProps> = ({ userName }: UserProps) => (
+export const Avatar: React.FC<UserProps> = ({ userName }: UserProps) => (
   <Container>
     <Circle>{getShortForm(userName)}</Circle>
   </Container>

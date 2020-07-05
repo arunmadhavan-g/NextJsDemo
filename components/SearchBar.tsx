@@ -28,7 +28,7 @@ export const SearchBar: React.FC<SearchBarProps> = () => (
   <Container>
     <TextBox />
     <SearchIconContainer>
-      <FaSearch size={20} />
+      <FaSearch size={20} color="grey"/>
     </SearchIconContainer>
   </Container>
 );

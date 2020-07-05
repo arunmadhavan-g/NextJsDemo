@@ -4,7 +4,8 @@ import { MenuBar } from "./MenuBar";
 import styled from "styled-components";
 
 const Body = styled.div`
-  margin: 20px 50px;
+    margin: 20px 50px;
+    font-family:  'Roboto', sans-serif !important;
 `;
 
 export interface LayoutProps {

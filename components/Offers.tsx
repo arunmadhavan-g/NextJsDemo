@@ -1,41 +1,27 @@
 import React from "react";
 import styled from "styled-components";
-import { FaInfoCircle } from "react-icons/fa";
-import * as Icon from "react-bootstrap-icons";
+import Text from "./common/Text";
+import {InfoText} from "./common/InfoText";
 
-const Text = styled.div`
-  width: 500px;
-  overflow: hidden;
-  textoverflow: ellipsis;
-  whitespace: nowrap;
-  margin: 0 5px;
-  font-size: 14px;
-  line-height: 18px;
-`;
-const Heading = styled.div`
-  text-transform: uppercase;
-  font-weight: 400;
-  font-size: 12px;
-  padding: 0.5rem 0;
-`;
 export interface OffersProps {
-  offers: string[];
+    offers: string[];
 }
 
-export const Offers: React.FC<OffersProps> = ({ offers }: OffersProps) => {
-  if (offers && offers.length > 0)
-    return (
-      <div style={{ marginTop: "20px" }}>
-        <Heading>Offers Available</Heading>
-        {offers.map((offer: string) => (
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <Icon.Tag />
-            <Text>{offer}</Text>
-            <FaInfoCircle />
-          </div>
-        ))}
-      </div>
-    );
+const OffersContainer = styled.div`
+    padding: 10px;
+`
+const Container = styled.div`
+ margin-top: 20px;
+`
 
-  return <></>;
+export const Offers: React.FC<OffersProps> = ({offers}: OffersProps) => {
+    if (offers && offers.length > 0)
+        return (
+            <Container>
+                <Text form="normal" type="primary">Offers Available</Text>
+                <OffersContainer>{offers.map((offer: string) => <InfoText text={offer}/>)}</OffersContainer>
+            </Container>
+        );
+
+    return <></>;
 };

@@ -15,10 +15,6 @@ export interface OptionType {
   options: string[];
 }
 
-export interface Ratings {
-  ratings: number[];
-}
-
 export interface Options {
   type: string;
   value: string;
