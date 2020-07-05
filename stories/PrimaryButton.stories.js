@@ -3,10 +3,10 @@ import { action } from "@storybook/addon-actions";
 import { PrimaryButton } from "../components/common/Button";
 
 export default {
-  title: "Button",
+  title: "Primary Button",
   component: PrimaryButton,
 };
 
 export const Text = () => (
-  <PrimaryButton size="large" onclick={action("clicked")} text="Buy Now" />
+  <PrimaryButton onclick={action("clicked")}>Buy Now</PrimaryButton>
 );

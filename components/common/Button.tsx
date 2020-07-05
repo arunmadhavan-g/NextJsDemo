@@ -27,7 +27,7 @@ export const PrimaryButton: React.FC<PrimaryButtonprops> = ({
   onclick,
 }) => {
   return (
-    <Button size={size} onClick={onclick}>
+    <Button onClick={onclick}>
       {prefixIcon}
       {text}
     </Button>
