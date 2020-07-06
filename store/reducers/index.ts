@@ -1,28 +1,32 @@
 import {productDetails, variantDetails} from "../../data/ProductData";
 import * as Constant from "../types";
+import produce from "immer";
 
-const initialState = {
+export const initialState = {
     productDetails,
     variantDetails: variantDetails,
     cartCount: 0,
 };
 
-const rootReducer = (state = initialState, action) => {
+export const cartReducer = produce((draft, action) => {
+    switch(action.type){
+        case Constant.ADD_CART:
+            draft.cartCount += 1;
+            break;
+    }
+});
+
+export const productReducer = produce((draft, action) => {
     const {type, payload} = action;
-    if (type === Constant.UPDATE_VARIANT) {
-        return {...state, variantDetails: payload};
+    switch(type){
+        case Constant.UPDATE_VARIANT:
+            draft.variantDetails = payload;
+            break;
+        case Constant.ADD_CART:
+            draft.cartCount = draft.cartCount + 1;
+            break;
+        case Constant.UPDATE_PRODUCT:
+            draft.productDetails = payload;
     }
+})
 
-    if (type === Constant.ADD_CART) {
-        return {...state, cartCount: state.cartCount + 1};
-    }
-
-    if (type === Constant.UPDATE_PRODUCT) {
-        console.log("????? Update product", payload);
-        return {...state, productDetails: payload};
-    }
-
-    return state;
-};
-
-export default rootReducer;

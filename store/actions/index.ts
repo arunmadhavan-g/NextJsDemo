@@ -5,7 +5,6 @@ import {Options} from "../../models/Models";
 
 export const fetchProductDetails = (dispatch: Function) => {
     getProductDetails().then(productDetails => {
-            console.log("?????", productDetails);
             return dispatch({type: Constant.UPDATE_PRODUCT, payload: productDetails});
         }
     );
@@ -30,6 +29,8 @@ export const changeOptionType = (
         ...currentOptions.filter((x) => x.type !== type),
         {type, value},
     ];
+
+
     getVariantDetails(newCurrentOptions).then(newVariantDetail => dispatch({
         type: Constant.UPDATE_VARIANT,
         payload: newVariantDetail

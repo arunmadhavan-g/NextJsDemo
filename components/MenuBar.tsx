@@ -4,10 +4,9 @@ import {SearchBar} from "./SearchBar";
 import {Avatar} from "./common/Avatar";
 import {Cart} from "./Cart";
 import styled from "styled-components";
-import {ProductDetailsModel, VariantDetails} from "../models/Models";
-import {useSelector} from "react-redux";
 
 export interface MenuBarProps {
+    cartCount: number
 }
 
 const LogoContainer = styled.div`
@@ -16,8 +15,8 @@ const LogoContainer = styled.div`
   height: 100%;
 `;
 
-export const MenuBar: React.FC<MenuBarProps> = () => {
-    const cartCount = useSelector((state: { productDetails: ProductDetailsModel, variantDetails: VariantDetails, cartCount:number }) => state.cartCount);
+export const MenuBar: React.FC<MenuBarProps> = ({cartCount}: MenuBarProps) => {
+
     return (
         <Grid>
             <Grid.Unit size={1 / 12}/>

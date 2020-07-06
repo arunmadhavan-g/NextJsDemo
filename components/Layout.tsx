@@ -10,13 +10,14 @@ const Body = styled.div`
 
 export interface LayoutProps {
   children: ReactNode;
+  cartCount: number;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }: LayoutProps) => (
+const Layout: React.FC<LayoutProps> = ({ cartCount, children }: LayoutProps) => (
   <Body>
     <Grid>
       <Grid.Unit size={12 / 12}>
-        <MenuBar />
+        <MenuBar cartCount={cartCount}/>
       </Grid.Unit>
       <Grid.Unit size={12 / 12}>{children}</Grid.Unit>
     </Grid>
