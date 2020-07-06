@@ -1,11 +1,11 @@
 import React from "react";
 import * as Icon from "react-bootstrap-icons";
 import Text from "./Text";
-import { FaInfoCircle } from "react-icons/fa";
+import {FaInfoCircle} from "react-icons/fa";
 import styled from "@emotion/styled";
 
 export interface InfoTextProps {
-  text: string;
+    text: string;
 }
 
 const ToolTip = styled.div`
@@ -38,13 +38,21 @@ const Container = styled.div`
     visibility: visible;
   }
 `;
-export const InfoText: React.FC<InfoTextProps> = ({ text }: InfoTextProps) => (
-  <Container>
-    <Icon.Tag />
-    <Text form="small" type="primary">
-      {text}
-    </Text>
-    <FaInfoCircle />
-    <ToolTip className="tooltip">{text}</ToolTip>
-  </Container>
+
+const TextContainer = styled.div`
+    width: 475px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+`;
+export const InfoText: React.FC<InfoTextProps> = ({text}: InfoTextProps) => (
+    <Container>
+        <Icon.Tag/>
+
+        <TextContainer><Text form="small" type="primary">
+            {text}
+        </Text></TextContainer>
+        <FaInfoCircle/>
+        <ToolTip className="tooltip">{text}</ToolTip>
+    </Container>
 );
